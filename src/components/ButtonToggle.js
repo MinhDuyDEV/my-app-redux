@@ -1,8 +1,18 @@
 import React from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { toggleSideBar } from "../redux-toolkit/globalSlice";
 
 const ButtonToggle = () => {
+  const dispatch = useDispatch();
+  const { showSideBar } = useSelector((state) => state.global);
+  const handleToggleSideBar = () => {
+    dispatch(toggleSideBar(!showSideBar));
+  };
   return (
-    <button className="fixed flex items-center justify-center w-10 h-10 text-white rounded-full right-5 top-5 bg-slate-600">
+    <button
+      className="fixed flex items-center justify-center w-10 h-10 text-white rounded-full right-5 top-5 bg-slate-600"
+      onClick={handleToggleSideBar}
+    >
       <svg
         xmlns="http://www.w3.org/2000/svg"
         className="w-5 h-5"
