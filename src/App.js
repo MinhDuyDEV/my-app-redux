@@ -1,12 +1,10 @@
 import React from "react";
-import ButtonToggle from "./components/ButtonToggle";
-import Sidebar from "./components/SideBar";
+import HackerNews from "./components/HackerNews";
 
 const App = () => {
   return (
     <div>
-      <Sidebar></Sidebar>
-      <ButtonToggle></ButtonToggle>
+      <HackerNews></HackerNews>
     </div>
   );
 };
