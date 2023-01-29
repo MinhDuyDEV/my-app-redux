@@ -1,7 +1,8 @@
 import { debounce } from "lodash";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getNews, setQuery } from "../sagas/news/newsSlice";
+import { handleFetchNews } from "../redux-thunk/newsSlice";
+// import { getNews, setQuery } from "../sagas/news/newsSlice";
 
 const HackerNews = () => {
   const { hits, loading, errorMessage, query } = useSelector(
@@ -9,10 +10,13 @@ const HackerNews = () => {
   );
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(getNews(query));
+    dispatch(handleFetchNews("css"));
   }, [dispatch, query]);
+  // useEffect(() => {
+  //   dispatch(getNews(query));
+  // }, [dispatch, query]);
   const handleChangeQuery = debounce((e) => {
-    dispatch(setQuery(e.target.value));
+    // dispatch(setQuery(e.target.value));
   }, 500);
   return (
     <div className="w-2/4 p-5 mx-auto mt-5 mb-5 bg-white rounded-lg shadow-md">
